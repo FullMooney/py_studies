@@ -1,1 +1,1 @@
-gan 학습조직 repository
+gan study group repository
