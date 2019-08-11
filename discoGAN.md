@@ -101,6 +101,9 @@ self.combined.compile(loss=['mse', 'mse',
                       optimizer=optimizer)
 
 ```
+
+컴파일할때 나오는 mse, mae 는 손실함수 인데 자세한 것은 [블로그](http://www.engear.net/wp/tag/mse/)를 참조
+
 각각의 Generator와 Discriminator는 이런 네트워크 모양을 띄고 있다고 한다. (출처: [Taeoh Kim github](https://github.com/taeoh-kim/Pytorch_DiscoGAN))
 
 <p align="center">
