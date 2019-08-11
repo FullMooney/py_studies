@@ -124,4 +124,9 @@ self.combined.compile(loss=['mse', 'mse',
     <img src="images/edges2shoesIter5000.png" />
 </p>  
 
-[back](./)
+
+
+- 참고한 git
+  - [논문+예제 찾는 수고를 덜어준 eriklindernoren github](https://github.com/eriklindernoren/Keras-GAN)
+
+[<<<<<<<<<<<< back](./)
