@@ -116,12 +116,12 @@ self.combined.compile(loss=['mse', 'mse',
 
 ** iter 1000
 <p align="center">
-    <img src="images/edges2shoesIter1000.PNG" />
+    <img src="images/edges2shoesIter1000.png" />
 </p>  
 
 ** iter 5000
 <p align="center">
-    <img src="images/edges2shoesIter5000.PNG" />
+    <img src="images/edges2shoesIter5000.png" />
 </p>  
 
 [back](./)
