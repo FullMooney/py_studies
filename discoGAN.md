@@ -109,17 +109,17 @@ self.combined.compile(loss=['mse', 'mse',
 
 시간이 워낙 많이 걸리기 때문에 여기까지만 하고 멈추었지만 계속 돌리면 될것 같다는 느낌은 들었다. 
 
-** input
+** input **
 <p align="center">
     <img src="images/edges2shoesInput.PNG" />
 </p>  
 
-** iter 1000
+** iter 1000 **
 <p align="center">
     <img src="images/edges2shoesIter1000.png" />
 </p>  
 
-** iter 5000
+** iter 5000 **
 <p align="center">
     <img src="images/edges2shoesIter5000.png" />
 </p>  
