@@ -27,6 +27,8 @@ discoGAN은 두 가지 시각적 도메인이 명시적인 데이터 없이 관�
     <img src="images/discoGAN.PNG" \>
 </p>
 
+
+
 (a)는 Standard GAN인데 여기에서는 Generator 에서 dimensional noise vector를 추가하여 xAB라는 fake 이미지를 생성하고, 실제 이미지 xB와 함께 Discriminator 네트워크에서 판별에 들어간다. Discriminator에서 0~1사이의 진짜 일 확률을 리턴하고, 정답에 대한 피드백을 받는 동안, Generator는 Discriminator로 부터 생성모델에 대한 정확도를 피드백으로서 받는다.
 
 (b)와 (a)의 차이는 (a)에서 xAB로 생성한 fake 이미지를 다시 원본 xA의 형태로 재구성하는 fake이미지 xABA를 만드는 generator를 추가했다는 점이고, xA와 xABA의 차이를 전체 loss에 더하여 준다. Consistency Loss or Reconstruction Loss라고 부른다. (Lconst A) 
