@@ -2,7 +2,7 @@
 layout: default
 ---
 
-#GAN 논문과 예제
+# GAN 논문과 예제
 
 ## 1. GAN
 
