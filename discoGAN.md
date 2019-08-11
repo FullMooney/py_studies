@@ -24,7 +24,7 @@ discoGAN은 두 가지 시각적 도메인이 명시적인 데이터 없이 관�
 ** 이미지 출처:  discoGAN 논문
 
 <p align="center">
-    <img src="images/discoGAN.PNG" \>
+    <img src="./images/discoGAN.PNG" \>
 </p>
 
 
