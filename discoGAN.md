@@ -108,7 +108,84 @@ self.combined.compile(loss=['mse', 'mse',
     <img src="https://github.com/taeoh-kim/Pytorch_DiscoGAN/raw/master/images/Discriminator.PNG" />
 </p>
     
+이부분을 다시 예제에서 보면
+1. Generator
 
+```python
+    def build_generator(self):
+        """U-Net Generator"""
+
+        def conv2d(layer_input, filters, f_size=4, normalize=True):
+            """Layers used during downsampling"""
+            d = Conv2D(filters, kernel_size=f_size, strides=2, padding='same')(layer_input)
+            d = LeakyReLU(alpha=0.2)(d)
+            if normalize:
+                d = InstanceNormalization()(d)
+            return d
+
+        def deconv2d(layer_input, skip_input, filters, f_size=4, dropout_rate=0):
+            """Layers used during upsampling"""
+            u = UpSampling2D(size=2)(layer_input)
+            u = Conv2D(filters, kernel_size=f_size, strides=1, padding='same', activation='relu')(u)
+            if dropout_rate:
+                u = Dropout(dropout_rate)(u)
+            u = InstanceNormalization()(u)
+            u = Concatenate()([u, skip_input])
+            return u
+
+        # Image input
+        d0 = Input(shape=self.img_shape)
+
+        # Downsampling
+        d1 = conv2d(d0, self.gf, normalize=False)
+        d2 = conv2d(d1, self.gf*2)
+        d3 = conv2d(d2, self.gf*4)
+        d4 = conv2d(d3, self.gf*8)
+        d5 = conv2d(d4, self.gf*8)
+        d6 = conv2d(d5, self.gf*8)
+        d7 = conv2d(d6, self.gf*8)
+
+        # Upsampling
+        u1 = deconv2d(d7, d6, self.gf*8)
+        u2 = deconv2d(u1, d5, self.gf*8)
+        u3 = deconv2d(u2, d4, self.gf*8)
+        u4 = deconv2d(u3, d3, self.gf*4)
+        u5 = deconv2d(u4, d2, self.gf*2)
+        u6 = deconv2d(u5, d1, self.gf)
+
+        u7 = UpSampling2D(size=2)(u6)
+        output_img = Conv2D(self.channels, kernel_size=4, strides=1,
+                            padding='same', activation='tanh')(u7)
+
+        return Model(d0, output_img)
+
+```
+
+1. Discriminator
+
+```python
+    def build_discriminator(self):
+
+        def d_layer(layer_input, filters, f_size=4, normalization=True):
+            """Discriminator layer"""
+            d = Conv2D(filters, kernel_size=f_size, strides=2, padding='same')(layer_input)
+            d = LeakyReLU(alpha=0.2)(d)
+            if normalization:
+                d = InstanceNormalization()(d)
+            return d
+
+        img = Input(shape=self.img_shape)
+
+        d1 = d_layer(img, self.df, normalization=False)
+        d2 = d_layer(d1, self.df*2)
+        d3 = d_layer(d2, self.df*4)
+        d4 = d_layer(d3, self.df*8)
+
+        validity = Conv2D(1, kernel_size=4, strides=1, padding='same')(d4)
+
+        return Model(img, validity)
+
+```
 
 이 예제 소스로 우선 예제 중에 edges2shoes라는 것이 흥미로워서 실습을 진행해 보았다.
 수많은 신발이미지와 이 신발의 edge를 pair로써 함께 제공하여 트레이닝을 하는 것으로 
