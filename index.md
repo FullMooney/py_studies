@@ -12,6 +12,5 @@ layout: default
 
 1. GAN
 1. CycleGAN
-1. DiscoGAN 
-[DiscoGAN 알아보기](./discoGAN.html)
+1. [DiscoGAN 알아보기](./discoGAN.html)
 
