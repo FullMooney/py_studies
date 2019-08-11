@@ -24,7 +24,11 @@ discoGAN은 두 가지 시각적 도메인이 명시적인 데이터 없이 관�
 2014년 Goodfellow 의 Standard GAN 에서는 랜덤한 가우시안 노이즈 z 를 hidden features h 에 인코딩하고 MNIST와 같은 숫자 이미지를 생성하였으나 DiscoGAN에서는 노이즈 대신 이미지를 인풋값으로 사용하였다. 
 그리고 기존에는 도메인A에서 B로의 매핑만 배울수 있는 구조였기 때문에 하나의 제너레이터를 더 추가하였다. 
 
-![Branching](./images/discoGAN.PNG)
+
+<p align="center">
+    <img src="images/discoGAN.PNG" \>
+</p>
+
 
 
 
