@@ -7,6 +7,8 @@ description: This is just another page
 
 # DiscoGAN 
 
+아래 모든 내용은 논문과 예제를 개인적으로 분석해본 내용이며 이미지 또한 논문에서 발췌하였습니다.
+  
 ** 논문 Learning to Discover Cross-Domain Relations with Generative Adversarial Networks **
 
 [LINK](https://arxiv.org/pdf/1703.05192.pdf).
