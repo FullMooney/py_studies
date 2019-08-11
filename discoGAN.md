@@ -101,6 +101,14 @@ self.combined.compile(loss=['mse', 'mse',
                       optimizer=optimizer)
 
 ```
+각각의 Generator와 Discriminator는 이런 네트워크 모양을 띄고 있다고 한다. (출처: [Taeoh Kim github](https://github.com/taeoh-kim/Pytorch_DiscoGAN))
+
+<p align="center">
+    <img src="https://github.com/taeoh-kim/Pytorch_DiscoGAN/raw/master/images/Generator.PNG" />
+    <img src="https://github.com/taeoh-kim/Pytorch_DiscoGAN/raw/master/images/Discriminator.PNG" />
+</p>
+    
+
 
 이 예제 소스로 우선 예제 중에 edges2shoes라는 것이 흥미로워서 실습을 진행해 보았다.
 수많은 신발이미지와 이 신발의 edge를 pair로써 함께 제공하여 트레이닝을 하는 것으로 
@@ -130,6 +138,7 @@ self.combined.compile(loss=['mse', 'mse',
 
 - 참고한 git
   - [논문+예제 찾는 수고를 덜어준 eriklindernoren github](https://github.com/eriklindernoren/Keras-GAN)
-  - [아주 자세히 DiscoGAN을 정리해준 Hyeonmin Lee post](https://hyeongminlee.github.io/post/gan005_discogan/)
+  - [아주 자세히 DiscoGAN을 정리해준 Hyeongmin Lee post](https://hyeongminlee.github.io/post/gan005_discogan/)
+  - [Hyeongmin Lee 도 참고한 Taeoh Kim gitgub](https://github.com/taeoh-kim/Pytorch_DiscoGAN)
 
-[메인으로 back](./)
+[메인으로 돌아가기](./)
