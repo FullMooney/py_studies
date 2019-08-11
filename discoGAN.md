@@ -6,7 +6,15 @@ description: DiscoGAN 논문을 개인적으로 정리해보았습니다.
 
 ** 논문 Learning to Discover Cross-Domain Relations with Generative Adversarial Networks **
 
-[LINK](https://arxiv.org/pdf/1703.05192.pdf).
+[Paper LINK](https://arxiv.org/pdf/1703.05192.pdf).
+
+일단 gan을 공부하기 시작하면서 본 영상중에 가장 충격을 받았던 것은 오바마가 아니라 이것이었다.
+DiscoGAN으로 나를 이끌어준 horse2zebra
+
+<p align="center">
+    <img src="images/horse2zebra.gif" />
+</p>
+
 
 ## 논문 요약 
 
@@ -21,13 +29,11 @@ discoGAN은 두 가지 시각적 도메인이 명시적인 데이터 없이 관�
 2014년 Goodfellow 의 Standard GAN 에서는 랜덤한 가우시안 노이즈 z 를 hidden features h 에 인코딩하고 MNIST와 같은 숫자 이미지를 생성하였으나 DiscoGAN에서는 노이즈 대신 이미지를 인풋값으로 사용하였다. 
 그리고 기존에는 도메인A에서 B로의 매핑만 배울수 있는 구조였기 때문에 하나의 generator를 더 추가하였다. 
 
-** 이미지 출처:  discoGAN 논문
-
 <p align="center">
     <img src="images/discoGAN.PNG" />
 </p>
 
-#### 
+######  이미지 출처:  discoGAN 논문 
 
 (a)는 Standard GAN인데 여기에서는 Generator 에서 dimensional noise vector를 추가하여 xAB라는 fake 이미지를 생성하고, 실제 이미지 xB와 함께 Discriminator 네트워크에서 판별에 들어간다. Discriminator에서 0~1사이의 진짜 일 확률을 리턴하고, 정답에 대한 피드백을 받는 동안, Generator는 Discriminator로 부터 생성모델에 대한 정확도를 피드백으로서 받는다.
 
@@ -96,9 +102,26 @@ self.combined.compile(loss=['mse', 'mse',
 
 ```
 
+이 예제 소스로 우선 예제 중에 edges2shoes라는 것이 흥미로워서 실습을 진행해 보았다.
+수많은 신발이미지와 이 신발의 edge를 pair로써 함께 제공하여 트레이닝을 하는 것으로 
+맨처음에는 edge에 색상을 어떻게 입히는지 감도 못잡는 느낌이었는데 Iteration 5000 부근에서 
+색상이 edge안에 가두어지는? 형태는 어쨋든 신발같은 느낌이 나기 시작했다.
 
+시간이 워낙 많이 걸리기 때문에 여기까지만 하고 멈추었지만 계속 돌리면 될것 같다는 느낌은 들었다. 
 
+** input
+<p align="center">
+    <img src="images/edges2shoesInput.PNG" />
+</p>  
 
-_yay_
+** iter 1000
+<p align="center">
+    <img src="images/edges2shoesIter1000.PNG" />
+</p>  
+
+** iter 5000
+<p align="center">
+    <img src="images/edges2shoesIter5000.PNG" />
+</p>  
 
 [back](./)
