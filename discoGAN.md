@@ -130,5 +130,6 @@ self.combined.compile(loss=['mse', 'mse',
 
 - 참고한 git
   - [논문+예제 찾는 수고를 덜어준 eriklindernoren github](https://github.com/eriklindernoren/Keras-GAN)
+  - [아주 자세히 DiscoGAN을 정리해준 Hyeonmin Lee post](https://hyeongminlee.github.io/post/gan005_discogan/)
 
 [메인으로 back](./)
