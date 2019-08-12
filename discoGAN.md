@@ -48,57 +48,96 @@ discoGAN은 두 가지 시각적 도메인이 명시적인 데이터 없이 관�
 
 
 ```python
-// (c) 모델을 소스로 표현한 부분..
-# Build and compile the discriminators
-self.d_A = self.build_discriminator()
-self.d_B = self.build_discriminator()
-self.d_A.compile(loss='mse',
-    optimizer=optimizer,
-    metrics=['accuracy'])
-self.d_B.compile(loss='mse',
-    optimizer=optimizer,
-    metrics=['accuracy'])
+class DiscoGAN():
+    def __init__(self):
+        # Input shape
+        self.img_rows = 128
+        self.img_cols = 128
+        self.channels = 3
+        self.img_shape = (self.img_rows, self.img_cols, self.channels)
 
-#-------------------------
-# Construct Computational
-#   Graph of Generators
-#-------------------------
+        # Configure data loader
+        self.dataset_name = 'edges2shoes'
+        self.data_loader = DataLoader(dataset_name=self.dataset_name,
+                                      img_res=(self.img_rows, self.img_cols))
 
-# Build the generators
-self.g_AB = self.build_generator()
-self.g_BA = self.build_generator()
 
-# Input images from both domains
-img_A = Input(shape=self.img_shape)
-img_B = Input(shape=self.img_shape)
+        # Calculate output shape of D (PatchGAN)
+        patch = int(self.img_rows / 2**4)
+        self.disc_patch = (patch, patch, 1)
 
-# Translate images to the other domain
-fake_B = self.g_AB(img_A)
-fake_A = self.g_BA(img_B)
-# Translate images back to original domain
-reconstr_A = self.g_BA(fake_B)
-reconstr_B = self.g_AB(fake_A)
+        # Number of filters in the first layer of G and D
+        self.gf = 64
+        self.df = 64
 
-# For the combined model we will only train the generators
-self.d_A.trainable = False
-self.d_B.trainable = False
+        optimizer = Adam(0.0002, 0.5)
 
-# Discriminators determines validity of translated images
-valid_A = self.d_A(fake_A)
-valid_B = self.d_B(fake_B)
+        # Build and compile the discriminators
+        self.d_A = self.build_discriminator()
+        self.d_B = self.build_discriminator()
+        self.d_A.compile(loss='mse',
+            optimizer=optimizer,
+            metrics=['accuracy'])
+        self.d_B.compile(loss='mse',
+            optimizer=optimizer,
+            metrics=['accuracy'])
 
-# Objectives
-# + Adversarial: Fool domain discriminators
-# + Translation: Minimize MAE between e.g. fake B and true B
-# + Cycle-consistency: Minimize MAE between reconstructed images and original
-self.combined = Model(inputs=[img_A, img_B],
-                      outputs=[ valid_A, valid_B,
-                                fake_B, fake_A,
-                                reconstr_A, reconstr_B ])
-self.combined.compile(loss=['mse', 'mse',
-                            'mae', 'mae',
-                            'mae', 'mae'],
-                      optimizer=optimizer)
+        #-------------------------
+        # Construct Computational
+        #   Graph of Generators
+        #-------------------------
+
+        // (c) 모델을 소스로 표현한 부분..
+        # Build and compile the discriminators
+        self.d_A = self.build_discriminator()
+        self.d_B = self.build_discriminator()
+        self.d_A.compile(loss='mse',
+            optimizer=optimizer,
+            metrics=['accuracy'])
+        self.d_B.compile(loss='mse',
+            optimizer=optimizer,
+            metrics=['accuracy'])
+
+        #-------------------------
+        # Construct Computational
+        #   Graph of Generators
+        #-------------------------
+
+        # Build the generators
+        self.g_AB = self.build_generator()
+        self.g_BA = self.build_generator()
+
+        # Input images from both domains
+        img_A = Input(shape=self.img_shape)
+        img_B = Input(shape=self.img_shape)
+
+        # Translate images to the other domain
+        fake_B = self.g_AB(img_A)
+        fake_A = self.g_BA(img_B)
+        # Translate images back to original domain
+        reconstr_A = self.g_BA(fake_B)
+        reconstr_B = self.g_AB(fake_A)
+
+        # For the combined model we will only train the generators
+        self.d_A.trainable = False
+        self.d_B.trainable = False
+
+        # Discriminators determines validity of translated images
+        valid_A = self.d_A(fake_A)
+        valid_B = self.d_B(fake_B)
+
+        # Objectives
+        # + Adversarial: Fool domain discriminators
+        # + Translation: Minimize MAE between e.g. fake B and true B
+        # + Cycle-consistency: Minimize MAE between reconstructed images and original
+        self.combined = Model(inputs=[img_A, img_B],
+                              outputs=[ valid_A, valid_B,
+                                        fake_B, fake_A,
+                                        reconstr_A, reconstr_B ])
+        self.combined.compile(loss=['mse', 'mse',
+                                    'mae', 'mae',
+                                    'mae', 'mae'],
+                              optimizer=optimizer)
 
 ```
 
