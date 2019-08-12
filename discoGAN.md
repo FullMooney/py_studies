@@ -9,7 +9,7 @@ description: DiscoGAN 논문을 개인적으로 정리해보았습니다.
 [Paper LINK](https://arxiv.org/pdf/1703.05192.pdf).
 
 일단 gan을 공부하기 시작하면서 본 영상중에 가장 충격을 받았던 것은 오바마가 아니라 이것이었다.
-DiscoGAN으로 나를 이끌어준 horse2zebra
+CycleGAN과 DiscoGAN으로 나를 이끌어준 horse2zebra
 
 <p align="center">
     <img src="images/horse2zebra.gif" />
