@@ -111,7 +111,7 @@ self.combined.compile(loss=['mse', 'mse',
     <img src="https://github.com/taeoh-kim/Pytorch_DiscoGAN/raw/master/images/Discriminator.PNG" />
 </p>
     
-이부분을 다시 예제에서 보면
+이부분을 다시 예제에서 보면 
 1. Generator
 
 ```python
@@ -217,6 +217,7 @@ self.combined.compile(loss=['mse', 'mse',
 
 
 - 참고한 git
+  - [discoGAN 논문을 쓴 SKTBrain의 github](https://github.com/SKTBrain/DiscoGAN) << respect
   - [논문+예제 찾는 수고를 덜어준 eriklindernoren github](https://github.com/eriklindernoren/Keras-GAN)
   - [아주 자세히 DiscoGAN을 정리해준 Hyeongmin Lee post](https://hyeongminlee.github.io/post/gan005_discogan/)
   - [Hyeongmin Lee 도 참고한 Taeoh Kim github](https://github.com/taeoh-kim/Pytorch_DiscoGAN)
