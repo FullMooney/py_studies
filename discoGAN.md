@@ -260,5 +260,6 @@ class DiscoGAN():
   - [논문+예제 찾는 수고를 덜어준 eriklindernoren github](https://github.com/eriklindernoren/Keras-GAN)
   - [아주 자세히 DiscoGAN을 정리해준 Hyeongmin Lee post](https://hyeongminlee.github.io/post/gan005_discogan/)
   - [Hyeongmin Lee 도 참고한 Taeoh Kim github](https://github.com/taeoh-kim/Pytorch_DiscoGAN)
+  - [cyclegan keras github](https://github.com/tjwei/GANotebooks)
 
 [메인으로 돌아가기](./)
