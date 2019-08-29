@@ -1,8 +1,7 @@
-
 ---
 layout: default
 title: RecycleGAN
-description: RecycleGAN 논문을 개인적으로 정리해 보. 
+description: RecycleGAN 논문을 개인적으로 정리해 보겠습니다. 
 ---
 
 ** 논문 Recycle-GAN: Unsupervised Video Retargeting **
