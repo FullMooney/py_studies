@@ -4,7 +4,7 @@ title: 뭉블리 파파의 딥러닝
 ---
 
 ## 데이터분석
-
+1. [heartbeat classification](./heartbeat.html)
 ## CNN 
 
 ## GAN 논문과 예제
