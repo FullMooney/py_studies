@@ -6,7 +6,7 @@ description: heartbeat classification 을 통한 심장질환 예측
 
 
 <p align="center">
-    <img src="images/horse2zebra.gif" />
+    <img src="" />
 </p>
 
 
@@ -18,7 +18,7 @@ description: heartbeat classification 을 통한 심장질환 예측
 
 
 <p align="center">
-    <img src="images/discoGAN.PNG" />
+    <img src="" />
 </p>
 
 ###### 목표
@@ -73,8 +73,7 @@ model...
 이미지 사이즈는 다시 12 X 12로 복귀. 별 차이를 못느꼈기 때문이었음 (트레이닝/테스트 스플릿 20%)
 
 1. 트레이닝 시킬때 배치 사이즈 조절 100 -> 30
-1. optimizer 변경 적용 시작 
-   loss function: categorical_crossentropy
+1. optimizer 변경 적용 시작  (loss function: categorical_crossentropy)
    optimizer:
    - rmsprop
    - Adam
@@ -149,7 +148,7 @@ Randomforest 등 ML 로 분류시도 = > 98은 넘어서지 못함
 
 
 
-[실습git](https://github.com/FullMooney/py_studies/blob/master/discogan/)
+[실습git](https://github.com/FullMooney/py_studies/blob/master/)
 
 
 
