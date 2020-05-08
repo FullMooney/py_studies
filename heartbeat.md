@@ -75,9 +75,9 @@ model...
 1. 트레이닝 시킬때 배치 사이즈 조절 100 -> 30
 1. optimizer 변경 적용 시작  (loss function: categorical_crossentropy)
    optimizer:
-   - rmsprop
-   - Adam
-   - Adhelta
+   - rmsprop : lr=0.001, decay=1e-4
+   - Adam   : lr=0.001, beta_1=0.9, beta_2=0.999
+   - Adadelta : rho=0.95
    
 ### 5차 CNN 을 통한 분류 시도 - LeNet
 
@@ -89,7 +89,7 @@ model...
 ```
 1. loss function 변경: binary_crossentropy  
    optimizer:
-   - SGD
+   - SGD : lr=0.01, momentum=0.9, nesterov=True
 
 갑작스런 99%를 로컬에서 경험하였으나, 실제 적용시 97%에도 못미치는 정확도를 보임
 
@@ -144,7 +144,7 @@ Randomforest 등 ML 로 분류시도 = > 98은 넘어서지 못함
 1. 데이터를 임의로 제거하고 12 x 12로 테스트 한점
 1. validation data split 을 너무 과도하게 잡은것 => 10% 미만으로 할걸!
 1. 네트워크를 너무 복잡하게 설계한것
-1. 각 모델들을 버리고 계속해서 새로운 모델로 학습한것. => ensemble 의 sof-vote를 적용해보았다면?
+1. 각 모델들을 버리고 계속해서 새로운 모델로 학습한것. => ensemble 의 soft-vote를 적용해보았다면?
 
 
 
