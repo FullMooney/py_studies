@@ -26,6 +26,14 @@ description: heartbeat classification 을 통한 심장질환 예측
 
 주어진 feature와 분류라벨을 활용하여 가장 정확도가 높은 heartbeat 분류모델을 만드는 것
 
+| Category     | CategoryName two  | 
+|:-------------|:------------------|
+|N|	Normal beat                    |
+|S|	Supraventricular ectopic beats |
+|V|	Ventricular ectopic beats      |
+|F|	Fusion Beats                   |
+|Q|	Unknown Beats                  |
+
 
 ### 예측모델링순서 
 <p align="center">
