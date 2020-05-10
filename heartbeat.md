@@ -10,7 +10,7 @@ description: heartbeat classification 을 통한 심장질환 예측
 1. 분류결과가 포함된 트레이닝 데이터 87,554건 - csv형식
 
 <p align="center">
-    <img src="images/heartbeat_raw.png" />
+    <img src="/images/heartbeat_raw.png" />
 </p>
 
 1. 분류결과가 포함되지 않은 테스트 데이터 21,892건
@@ -19,7 +19,7 @@ description: heartbeat classification 을 통한 심장질환 예측
 
 
 <p align="center">
-    <img src="" />
+    <img src="/images/kaggle.png" />
 </p>
 
 ###### 목표
@@ -29,7 +29,7 @@ description: heartbeat classification 을 통한 심장질환 예측
 
 ### 예측모델링순서 
 <p align="center">
-    <img src="images/예측모델링순서.png" />
+    <img src="/images/예측모델링순서.png" />
 </p>
 
 
@@ -52,11 +52,11 @@ model.compile(optimizer=RMSprop(lr=1e-3), loss='categorical_crossentropy', metri
 ```
 
 <p align="center">
-    <img src="images/heartbeat_loss_nn.png" />
+    <img src="/images/heartbeat_loss_nn.png" />
 </p>
 
 <p align="center">
-    <img src="images/heartbeat_acc_nn.png" />
+    <img src="/images/heartbeat_acc_nn.png" />
 </p>
 
 단순한 네트워크로 구현하였음에도 97%라는 상당히 높은 정확도를 보임. (트레이닝/테스트 스플릿 20%)
@@ -134,11 +134,11 @@ model.add(layers.Dense(5, activation='sigmoid'))
 
 
 <p align="center">
-    <img src="images/heartbeat_loss_1313.png" />
+    <img src="/images/heartbeat_loss_1313.png" />
 </p>
 
 <p align="center">
-    <img src="images/heartbeat_acc_1313.png" />
+    <img src="/images/heartbeat_acc_1313.png" />
 </p>
 
 제외하였던 데이터를 포함하고 부족한 부분은 zero-padding하여 13 X 13 형태의 이미지로 데이터를 변경 (트레이닝/테스트 스플릿 20%)
@@ -275,11 +275,11 @@ Randomforest 등 ML 로 분류시도 = > 98은 넘어서지 못함
 
 ## soft-vote vs hard-vote
 <p align="center">
-    <img src="images/softvote.png" />
+    <img src="/images/softvote.png" />
 </p>
 
 <p align="center">
-    <img src="images/hardvote.png" />
+    <img src="/images/hardvote.png" />
 </p>
 
 
