@@ -22,7 +22,7 @@ description: heartbeat classification 을 통한 심장질환 예측
     <img src="/images/kaggle.png" />
 </p>
 
-###### 목표
+#### 목표
 
 주어진 feature와 분류라벨을 활용하여 가장 정확도가 높은 heartbeat 분류모델을 만드는 것
 
