@@ -42,7 +42,7 @@ description: heartbeat classification 을 통한 심장질환 예측
 
 
 
-### 1차 ML 을 통한 분류 시도 
+### 1차 NN 을 통한 분류 시도 
 
 ```python
 model = models.Sequential()
